@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B.Chapman E-Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/b8f835a5d0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("jrXXvnOaMjxG_Iupg");
+        })();
+    </script>
+  </head>
+  <body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+      <nav>
+            <figure>
+                <img id="personal-logo" src="./assests/BC (2).svg" alt="" />
+            </figure>
+            <ul class="nav__link--list">
+                <li class="nav__link" onclick="toggleModal()">
+                <a
+                href="#"
+                class="nav__link--anchor link__hover-effect link__hover-effect--black"
+                >About</a
+                >
+                </li>
+                <li class="nav__link">
+                <a
+                href="#projects"
+                class="nav__link--anchor link__hover-effect link__hover-effect--black"
+                >Projects</a
+                >
+                </li>
+                <li class="nav__link">
+                <a
+                href="#"
+                class="nav__link--anchor link__hover-effect link__hover-effect--black"
+                onclick="toggleModal()"
+                >Contact</a
+                >
+                </li>
+                <li class="nav__link click" onclick="toggleContrast()">
+                <a
+                href="#"
+                class="nav__link--anchor link__hover-effect link__hover-effect--black"
+                ><i class="fa-solid fa-circle-half-stroke"></i
+                ></a>
+            </li>
+            </ul>
+        </nav>
+        <header class="header">
+            <div class="header__content">
+                <h1 class="title">Hi</h1>
+                <h1 class="title blue">I'm Brandon</h1>
+                <p class="header__para">
+                    I'm a <b class="blue">Frontend Developer</b> at the start of my
+                    career, focused on building engaging and accessible web
+                    applications.
+                    <br>
+                    Here's a little more <b class="blue click" onclick="toggleModal()" >about me.</b>
+                </p>
+                <div class="social__list">
+                    <a
+                        href="https://google.com"
+                        target="_blank"
+                        class="social__link click">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a
+                        href="https://github.com/chapman0613"
+                        target="_blank"
+                        class="social__link click">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="./assests/.pdf" target="_blank" class="social__link click">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <a href="#">
+            <button class="mail__btn click" onclick="toggleModal()">
+                <i class="fa-solid fa-envelope"></i>
+            </button>
+        </a>
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click"></div>
+        </a>
+        <div class="modal">
+            <div class="modal__half modal__about">
+                <h3 class="modal__title modal__title--about">Here's a bit about me</h3>
+                <h4 class="modal__sub-title modal__sub-title--about">Frontend Developer</h4>
+                <p class="modal__para">
+                    Hi, I'm a 22 year old devloping <b class="blue">frontend developer</b> from the state of Massachusetts focused on buiding responsive and <b class="blue">accessible websites.</b>
+                    <br>
+                    I'm <b class="blue">continuously</b> working on projects focusing on building my skills in HTML, CSS, and JavaScript. My goal is to <b class="blue">grow</b> with experience as a developer.
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                        <img 
+                            src="./assests/HTML5_Badge.svg.png" 
+                            alt=""
+                            class="modal__language--img"
+                        >
+                        <span class="language__name">HTML</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img 
+                            src="./assests/css-131-722685.webp" 
+                            alt=""
+                            class="modal__language--img"
+                        >
+                        <span class="language__name">CSS</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img 
+                            src="./assests/javascript-1-225993.webp" 
+                            alt=""
+                            class="modal__language--img"
+                        >
+                        <span class="language__name">JavaScript</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img 
+                            src="./assests/react-3-1175109.webp" 
+                            alt=""
+                            class="modal__language--img"
+                        >
+                        <span class="language__name">React</span>
+                    </figure>
+                </div> 
+            </div>
+            <div class="modal__half modal__contact">
+                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+                <h3 class="modal__title modal__title--contact">
+                    Let's have a chat!
+                </h3>
+                <h3 class="modal__sub-title modal__sub-title--contact">
+                    I'm currently open to new opportunities.
+                </h3>
+                <form id="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input class="imput" name="user_name" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Email</label>
+                        <input class="imput" name="user_email" type="email" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea class="input" name="message" type="text"></textarea>
+                    </div>
+                    <button id="contact__submit" class="form__submit">
+                        Send it here!
+                    </button>
+                </form>
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                   Thank you for reaching out! I look forward to connecting with you soon.
+                </div>
+            </div>
+        </div>
+        <img src="assests/semi circle.svg" class="shape shape--0">
+        <img src="assests/circle.svg" class="shape shape--1">
+        <img src="assests/squiggly.svg" class="shape shape--2">
+        <img src="assests/circle.svg" class="shape shape--3">
+        <img src="assests/triangle.svg" class="shape shape--4">
+        <img src="assests/circle.svg" class="shape shape--5">
+        <img src="assests/squiggly.svg" class="shape shape--6">
+        <img src="assests/circle.svg" class="shape shape--7">
+        <img src="assests/semi circle.svg" class="shape shape--8">
+    </section>
+    <section id="projects">
+      <div class="container">
+        <div class="row">
+          <h1 class="section__title">
+            Here are some of my <span class="blue">Projects</span>
+          </h1>
+          <ul class="projects__list">
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assests/Screenshot 2026-01-31 at 7.21.03 PM.png"
+                  class="project__img"
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Treact Project</h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    This project is a website I did in school. This project
+                    entails the about page for Treact with payment plans,
+                    reviews, contacts, and sign ups on the website.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/chapman0613/Treact"
+                      target="_blank"
+                      class="project__description--link"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a
+                      href="https://chapman0613.github.io/Treact/"
+                      target="_blank"
+                      class="project__description--link"
+                    >
+                      <i class="fa-solid fa-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="./assests/blinker mockup.png" class="project__img" />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">
+                    E-Commerce Project
+                  </h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    This is a project I did during school. This projects entails
+                    an online book store. It shows books that are on the online
+                    store and those that are on sale with their ratings.
+                  </p>
+                  <div class="project__description--links">
+                    <a
+                      href="https://github.com/chapman0613/E-Commerce"
+                      target="_blank"
+                      class="project__description--link"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a
+                      href="https://chapman0613.github.io/E-Commerce/"
+                      target="_blank"
+                      class="project__description--link"
+                    >
+                      <i class="fa-solid fa-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project__wrapper">
+                <img src="./assests/blinker mockup.png" class="project__img" />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Car Sales Project</h3>
+                  <h4 class="project__description--sub-title">
+                    Html, CSS, JavaScript
+                  </h4>
+                  <p class="project__description--para">
+                    This will say something about a project
+                  </p>
+                  <div class="project__description--links">
+                    <a href="#" class="project__description--link">
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="#" class="project__description--link">
+                      <i class="fa-solid fa-link"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+            <div class="row footer__row">
+                <a href="#" class="footer__anchor">
+                    <figure class="footer__logo">
+                        <img src="./assests/BC (2).svg" class="footer__logo--img" alt="">
+                    </figure>
+                    <span class="footer__logo--popper">
+                        Top
+                        <i class="fas fa-arrow-up"></i>
+                    </span>
+                </a>
+                <div class="footer__social--list">
+                    <a
+                        href="https://github.com/dashboard"
+                        target="_blank" 
+                        class="footer__social--link link__hover-effect link__hover-effect--white"
+                    >
+                        Github
+                    </a>
+                    <a
+                        href="#"
+                        class="footer__social--link link__hover-effect link__hover-effect--white"
+                    >
+                        LinkedIn
+                    </a>
+                    <a
+                        href="#"
+                        class="footer__social--link link__hover-effect link__hover-effect--white"
+                    >
+                        Contact
+                    </a>
+                    <a
+                        href="#"
+                        class="footer__social--link link__hover-effect link__hover-effect--white"
+                    >
+                        Resume
+                    </a>
+                </div>
+                <div class="footer__copyright">Copyright © 2026 Brandon Chapman</div>
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>
